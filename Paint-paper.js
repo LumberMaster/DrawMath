@@ -28,6 +28,7 @@ function Fixing_paint_paper(){
     document.getElementById('canvas-paint-paper').setAttribute('height',height);
     
     document.getElementById('canvas-paint-paper').addEventListener('mousemove', function(e){
+        
         let Pos_x=e.clientX,
             Pos_y=e.clientY; 
        //Вывод позиции мышки в футер 
@@ -163,7 +164,6 @@ function load_paint_paper(){
         
       div.appendChild(menu);
       div.appendChild(canvas);
-//      div.appendChild(canvas2);
         
         
       border_div_paint_paper.appendChild(top_border_paint_paper);  
@@ -214,9 +214,10 @@ function Eraser_deactivator(){
 }
 function Painting(){
   let canvas = document.getElementById('canvas-paint-paper'),
-      ctx = canvas.getContext('2d'),    
-//      canvas2 = document.getElementById('canvas2-paint-paper'),
-//      ctx2 = canvas2.getContext('2d'),
+      ctx = canvas.getContext('2d'),  
+      canvas_div = document.getElementById('canvas-div'),
+      canvas_div_scrollY = canvas_div.scrollTop,
+      canvas_div_scrollX = canvas_div.scrollLeft,
       menuHeight = document.getElementById('div-menu-paint-paper').offsetHeight,
       menuWidth = document.getElementById('div-menu-paint-paper').offsetWidth,
       cnvsWidth = canvas.width,
@@ -229,9 +230,7 @@ function Painting(){
       posMouseDiv = document.getElementById('posMouse').value,
       pen_size = document.getElementById('pen-size-input').value;
       
-//canvas_margin_left.splice(-2,2);  
-//console.log(canvas_margin_left);
-//    
+    
 canvas.addEventListener('mouseup',function(){isMouseDown = false;ctx.lineWidth = pen_size;});
 canvas.addEventListener('mousedown',function(){
     isMouseDown = true;
@@ -269,19 +268,16 @@ let pen_size_change = function(e){
   }  
   
   let draw = function(e){
-          let Pos_x=e.clientX,
-              Pos_y=e.clientY;
+          let canvas_div_scrollY = canvas_div.scrollTop,
+              canvas_div_scrollX = canvas_div.scrollLeft,
+              Pos_x = e.pageX,
+              Pos_y = e.pageY;
       
+
+          console.log('X = ' + canvas_div_scrollX + ' Y = ' + canvas_div_scrollY);
       
-//          Pos_x = (clientWidth-canvas_margin_left)+(Pos_x-canvas_margin_left);
-          Pos_y = Pos_y - menuHeight;
-//             ctx2.beginPath();
-//             ctx2.fillStyle = '#ddd';
-//             ctx2.fillRect(0,0,canvas2.width,canvas2.height);
-//             ctx2.fillStyle = '#ffffff00';
-//             ctx2.fillRect(0,0,canvas2.width,canvas2.height);
-//             ctx2.arc(Pos_x,Pos_y,pen_size/2,0,Math.PI * 2);
-//             ctx2.stroke();
+          Pos_x = Pos_x + canvas_div_scrollX;
+          Pos_y = (Pos_y - menuHeight) + canvas_div_scrollY;
       
     
       
@@ -305,7 +301,6 @@ let pen_size_change = function(e){
   
   
     if(document.getElementById('pen-Active-paint-paper')){  
-//        ctx2.strokeStyle = '#000';
         ctx.fillStyle = pen_color;
         ctx.strokeStyle = pen_color;
         ctx.lineWidth = pen_size;
@@ -315,8 +310,6 @@ let pen_size_change = function(e){
         }
     
     if(document.getElementById('Eraser-Active')){
-//        ctx2.fillStyle = '#ddd';
-//        ctx2.strokeStyle = '#000';
         ctx.fillStyle = '#fff';
         ctx.strokeStyle = '#fff';
         ctx.lineWidth = pen_size;

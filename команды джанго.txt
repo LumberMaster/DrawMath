@@ -1,0 +1,6 @@
+D:\Django projects\WebMath>python manage.py runserver - старт сервера
+D:\Django projects\WebMath>python manage.py makemigrations Exercises
+D:\Django projects\WebMath>python manage.py migrate
+D:\Django projects\WebMath>python manage.py 
+D:\Django projects\WebMath>python manage.py 
+D:\Django projects\WebMath>python manage.py 
