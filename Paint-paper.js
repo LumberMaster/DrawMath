@@ -2,6 +2,7 @@ function load_img_src(id,src){
      src = './Imgs/' + src 
      document.getElementById(id).setAttribute('src',src);
 }
+
 function change_size_canvas(){
     let inputWidth = document.getElementById('WidthCanvas').value,
         inputHeight = document.getElementById('HeightCanvas').value,
@@ -12,7 +13,9 @@ function change_size_canvas(){
     
     if((inputWidth<canvas_div_width)||(inputHeight<canvas_div_height)){
         canvas.setAttribute('width',canvas_div_width);
-        canvas.setAttribute('height',canvas_div_height); 
+        canvas.setAttribute('height',canvas_div_height);
+        inputWidth = canvas_div_width;
+        inputHeight = canvas_div_height;
     }else{
         canvas.setAttribute('width',inputWidth);
         canvas.setAttribute('height',inputHeight);        
@@ -21,19 +24,25 @@ function change_size_canvas(){
 function Fixing_paint_paper(){
     let height = window.innerHeight || document.body.clientHeight || document.documentElement.clientHeight,
         width = window.innerWidth || document.body.clientWidth || document.documentElement.clientWidth,
+        canvas_width = document.getElementById('WidthCanvas').value,
+        canvas_height = document.getElementById('HeightCanvas').value,
+        canvas_div = document.getElementById('canvas-div'),
         canvas_div_Width = document.getElementById('canvas-div').offsetWidth, 
         canvas_div_Height = document.getElementById('canvas-div').offsetHeight; 
 
-    document.getElementById('canvas-paint-paper').setAttribute('width',width);
-    document.getElementById('canvas-paint-paper').setAttribute('height',height);
+    document.getElementById('canvas-paint-paper').setAttribute('width', canvas_width);
+    document.getElementById('canvas-paint-paper').setAttribute('height', canvas_height);
     
     document.getElementById('canvas-paint-paper').addEventListener('mousemove', function(e){
         
-        let Pos_x=e.clientX,
-            Pos_y=e.clientY; 
+        let   canvas_div_scrollY = canvas_div.scrollTop,
+              canvas_div_scrollX = canvas_div.scrollLeft,
+              Pos_x = e.pageX,
+              Pos_y = e.pageY;
+      
        //Вывод позиции мышки в футер 
         
-        document.getElementById('posMouse').innerHTML = 'X = ' + Pos_x + ' Y = ' + (Pos_y-100);
+        document.getElementById('posMouse').innerHTML = 'X = ' + (Pos_x + canvas_div_scrollX) + ' Y = ' + ((Pos_y-100)+canvas_div_scrollY);
         
     });
     
@@ -327,8 +336,41 @@ function clean_all_canvas_paint(){
     ctx.fillRect(0,0,canvas.width,canvas.height);
 }
 
-function test(){
-    document.onmousewheel = function(e){
-      console.log(e);
-    }
+function gridDraw(){
+    let canvas = document.getElementById('canvas-paint-paper'),
+        ctx = canvas.getContext('2d'),
+        widthCanvas = canvas.width,
+        heightCanvas = canvas.height,
+        Size_Grid = 20;
+    
+    ctx.strokeStyle = 'gray';
+    ctx.lineWidth=1;
+    
+    
+    for(let i = 0;i<widthCanvas;i+=Size_Grid){
+        ctx.beginPath();
+        ctx.moveTo(i,0);
+        ctx.lineTo(i,heightCanvas);
+        ctx.stroke();
+    };
+    
+    
+    for(let i = 0 ;i<heightCanvas;i+=Size_Grid){ 
+        ctx.beginPath();
+        ctx.moveTo(0, i);
+        ctx.lineTo(widthCanvas, i);
+        ctx.stroke();       
+    };
 }
+
+function test(){
+    addEventListener("keyup", function(e) {
+    console.log(e)
+  });
+}
+
+addEventListener("keyup", function(e) {
+    if (e.keyCode == "122"){
+        Fixing_paint_paper();
+    }
+  });

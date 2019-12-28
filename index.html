@@ -22,6 +22,10 @@
                 
                 <img id="line-NotActive-paint-paper" class="tools" src="./Imgs/Line-NotActive.png" onmouseover="load_img_src('line-NotActive-paint-paper','Line-Active.png')" onmouseout="load_img_src('line-NotActive-paint-paper','Line-NotActive.png')">
                 
+                <img id="grid-NotActive-paint-paper" class="tools" src="./Imgs/grid-NotActive.png" onclick="gridDraw()" onmouseover="load_img_src('grid-NotActive-paint-paper','grid-Active.png')" onmouseout="load_img_src('grid-NotActive-paint-paper','grid-NotActive.png')">
+                
+                <img id="ruler-NotActive-paint-paper" class="tools" src="./Imgs/ruler-NotActive.png" onclick="rulerDraw()" onmouseover="load_img_src('ruler-NotActive-paint-paper','ruler-Active.png')" onmouseout="load_img_src('ruler-NotActive-paint-paper','ruler-NotActive.png')">
+                
 <!--                <div id="button-exit-paint" onclick="load_paint_paper()">✖</div>-->
                 
             </div>
@@ -37,7 +41,7 @@
             </div>
         </div>
             <div id="canvas-div">         
-                <canvas id="canvas-paint-paper"  onmouseover="Painting()" width="2480" height="3508" background="#ddd"></canvas>
+                <canvas id="canvas-paint-paper"  onmouseover="Painting()" background="#ddd"></canvas>
             </div>
             <div id="side-bar">
                               
