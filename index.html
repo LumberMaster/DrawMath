@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Холст</title>
+    <link rel="stylesheet" href="./Style.css">
+    <script src="Paint-paper.js"></script>
+</head>
+<body onload="Fixing_paint_paper()">
+    <div id="div-paint-paper">
+        <div id="div-menu-paint-paper">
+           
+            <div id="tools-paint-paper">
+               
+                <img id="clean_all-paint-paper" class="tools" src="./Imgs/clean-all-NotActive.png" onclick="clean_all_canvas_paint()" onmouseover="load_img_src('clean_all-paint-paper','clean-all-Active.png')" onmouseout="load_img_src('clean_all-paint-paper','clean-all-NotActive.png')">
+                
+                <img id="pen-NotActive-paint-paper" class="tools" src="./Imgs/Pen-NotActive.png" onmouseover="load_img_src('pen-NotActive-paint-paper','Pen-Active.png')" onmouseout="load_img_src('pen-NotActive-paint-paper','Pen-NotActive.png')" onclick="pen_activator()">
+                
+                <img id="Eraser-NotActive" class="tools" src="./Imgs/Eraser-NotActive.png" onmouseover="load_img_src('Eraser-NotActive','Eraser-Active.png')" onmouseout="load_img_src('Eraser-NotActive','Eraser-NotActive.png')" onclick="Eraser_activator()">
+                
+                <img id="text-NotActive-paint-paper" class="tools" src="./Imgs/Text-NotActive.png" onmouseover="load_img_src('text-NotActive-paint-paper','Text-Active.png')" onmouseout="load_img_src('text-NotActive-paint-paper','Text-NotActive.png')">
+                
+                <img id="line-NotActive-paint-paper" class="tools" src="./Imgs/Line-NotActive.png" onmouseover="load_img_src('line-NotActive-paint-paper','Line-Active.png')" onmouseout="load_img_src('line-NotActive-paint-paper','Line-NotActive.png')">
+                
+<!--                <div id="button-exit-paint" onclick="load_paint_paper()">✖</div>-->
+                
+            </div>
+                
+            <div id="tools-option">
+               
+                <input id="pen-size-input" value="2">
+                
+                <input id="pen-color-input" value="#2521c4">
+                
+                <div id="pen_color_value_div" style="background:#2521c4;"></div>
+                
+            </div>
+        </div>
+            <div id="canvas-div">         
+                <canvas id="canvas-paint-paper"  onmouseover="Painting()" width="2480" height="3508" background="#ddd"></canvas>
+            </div>
+            <div id="side-bar">
+                              
+            </div>
+            <div id="footer">
+                <div id="posMouse">X = 0 Y = 0</div>
+                <div id="size-canvas">
+                    <input type="text" id="WidthCanvas" value="2480" oninput="change_size_canvas()">
+                    <div style="color:azure;float:left;height: 25px; font-size: 15px;padding-top: 5px;">x</div>
+                    <input type="text" id="HeightCanvas" value="3508" oninput="change_size_canvas()">
+                    
+                </div>
+            </div>
+        </div>
+</body>
+</html>
