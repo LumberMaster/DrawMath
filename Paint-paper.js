@@ -257,7 +257,7 @@ let pen_size_change = function(e){
     
     
 
-    canvas.onwheel = pen_size_change;// Увеличение размера кисти при прокрутке
+//    canvas.onwheel = pen_size_change;// Увеличение размера кисти при прокрутке
     
       pen_color_value_div.setAttribute('style','background:'+pen_color+';');
     
