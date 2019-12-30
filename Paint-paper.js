@@ -267,7 +267,7 @@ let pen_size_change = function(e){
 
 //    canvas.onwheel = pen_size_change;// Увеличение размера кисти при прокрутке
     
-      pen_color_value_div.setAttribute('style','background:'+pen_color+';');
+//      pen_color_value_div.setAttribute('style','background:'+pen_color+';');
     
   let StopDraw = function(){
         isMouseDown = false;
@@ -353,6 +353,25 @@ function gridDraw(){
         ctx.lineTo(i,heightCanvas);
         ctx.stroke();
     };
+    
+    
+    for(let i = 0 ;i<heightCanvas;i+=Size_Grid){ 
+        ctx.beginPath();
+        ctx.moveTo(0, i);
+        ctx.lineTo(widthCanvas, i);
+        ctx.stroke();       
+    };
+}
+
+function rulerDraw(){
+    let canvas = document.getElementById('canvas-paint-paper'),
+        ctx = canvas.getContext('2d'),
+        widthCanvas = canvas.width,
+        heightCanvas = canvas.height,
+        Size_Grid = 20;
+    
+    ctx.strokeStyle = 'gray';
+    ctx.lineWidth=1;
     
     
     for(let i = 0 ;i<heightCanvas;i+=Size_Grid){ 

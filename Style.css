@@ -120,8 +120,6 @@ body{
    float: left;
    width: 20px; 
    height: 20px;
-   border: 3px solid #555; 
-   background: #000;
 }
 .tools{
    width: 35px;
@@ -146,6 +144,7 @@ body{
     width: 300px;
     height: 250px;
     margin: 5px 35px;
+    user-select: none;
 }
 
 #size-canvas{
