@@ -91,10 +91,10 @@ function load_paint_paper(){
       menu.setAttribute('id','div-menu-paint-paper');
       
       clean_all.setAttribute('id','clean_all-paint-paper');
-      clean_all.setAttribute('src','/static/Imgs/clean-all-NotActive.png'); 
-      clean_all.setAttribute('onclick',"clean_all_canvas_paint()");
-      clean_all.setAttribute('onmouseover',"load_img_src('clean_all-paint-paper','clean-all-Active.png')");
-      clean_all.setAttribute('onmouseout',"load_img_src('clean_all-paint-paper','clean-all-NotActive.png')");
+      clean_all.setAttribute('src','/static/Imgs/Clean-all-NotActive.png'); 
+      clean_all.setAttribute('onclick',"Clean_all_canvas_paint()");
+      clean_all.setAttribute('onmouseover',"load_img_src('clean_all-paint-paper','Clean-all-Active.png')");
+      clean_all.setAttribute('onmouseout',"load_img_src('clean_all-paint-paper','Clean-all-NotActive.png')");
       clean_all.setAttribute('title',"Очистить холст");
         
       pen.setAttribute('id','pen-NotActive-paint-paper');
