@@ -68,7 +68,7 @@ function load_paint_paper(){
           line = document.createElement('img'),
           clean_all = document.createElement('img'),
           pen_color = document.createElement('input'),
-          pen_color_value_div = document.createElement('div'),
+        //   pen_color_value_div = document.createElement('div'),
           pen_size = document.createElement('input'),
           button_exit_paint = document.createElement('div'),
           top_border_paint_paper = document.createElement('div'),
@@ -126,7 +126,7 @@ function load_paint_paper(){
       pen_color.setAttribute('title','Цвет ручки');
       pen_color.addEventListener('input', Painting);
         
-      pen_color_value_div.setAttribute('id','pen_color_value_div');
+    //   pen_color_value_div.setAttribute('id','pen_color_value_div');
         
       pen_size.setAttribute('id','pen-size-input');
       pen_size.setAttribute('value','2');
@@ -159,7 +159,7 @@ function load_paint_paper(){
       
       tools_option.appendChild(pen_size);
       tools_option.appendChild(pen_color);
-      tools_option.appendChild(pen_color_value_div);  
+    //   tools_option.appendChild(pen_color_value_div);  
      
       tools.appendChild(clean_all);
       tools.appendChild(pen);  
@@ -234,8 +234,7 @@ function Painting(){
       cnvsHeight = canvas.height,
       clientWidth = document.documentElement.clientWidth,
       clientHeight = document.documentElement.clientHeight,
-      pen_color = document.getElementById('pen-color-input').value,
-      pen_color_value_div = document.getElementById('pen_color_value_div'),
+      pen_color = document.getElementById('input_color_pen').value,
       posMouseDiv = document.getElementById('posMouse').value,
       pen_size = document.getElementById('pen-size-input').value;
       
@@ -244,7 +243,7 @@ canvas.addEventListener('mouseup',function(){isMouseDown = false;ctx.lineWidth =
 canvas.addEventListener('mousedown',function(){
     isMouseDown = true;
     pen_size = document.getElementById('pen-size-input').value;
-    pen_color = document.getElementById('pen-color-input').value;
+    pen_color = document.getElementById('input_color_pen').value;
     ctx.lineWidth = pen_size;
     ctx.beginPath();
 });   
@@ -267,7 +266,7 @@ let pen_size_change = function(e){
 
 //    canvas.onwheel = pen_size_change;// Увеличение размера кисти при прокрутке
     
-//      pen_color_value_div.setAttribute('style','background:'+pen_color+';');
+    //   pen_color_value_div.setAttribute('style','background:'+pen_color+';');
     
   let StopDraw = function(){
         isMouseDown = false;
@@ -281,16 +280,16 @@ let pen_size_change = function(e){
               canvas_div_scrollX = canvas_div.scrollLeft,
               Pos_x = e.pageX,
               Pos_y = e.pageY;
+            
       
 
-          console.log('X = ' + canvas_div_scrollX + ' Y = ' + canvas_div_scrollY);
+//          console.log('X = ' + canvas_div_scrollX + ' Y = ' + canvas_div_scrollY);
       
           Pos_x = Pos_x + canvas_div_scrollX;
           Pos_y = (Pos_y - menuHeight) + canvas_div_scrollY;
-      
-    
-      
-         if(isMouseDown){             
+              
+         if(isMouseDown){  
+             
              ctx.lineTo(Pos_x,Pos_y);
              ctx.stroke();
              
@@ -393,3 +392,19 @@ addEventListener("keyup", function(e) {
         Fixing_paint_paper();
     }
   });
+
+  function download_canvas() {
+    let canvas = document.getElementById('canvas-paint-paper');
+    // let btn = document.getElementById('btn-download');
+
+    let imageData = canvas.toDataURL('image/png');
+    let image = new Image();
+    image.src = imageData;
+
+
+    let link = document.createElement("a");
+ 
+    link.setAttribute("href", image.src);
+    link.setAttribute("download", "CANVAS");
+    link.click();
+  }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Холст</title>
@@ -12,19 +12,19 @@
            
             <div id="tools-paint-paper">
                
-                <img id="clean_all-paint-paper" class="tools" src="./Imgs/clean-all-NotActive.png" onclick="clean_all_canvas_paint()" onmouseover="load_img_src('clean_all-paint-paper','clean-all-Active.png')" onmouseout="load_img_src('clean_all-paint-paper','clean-all-NotActive.png')">
+                <img id="clean_all-paint-paper" class="tools" src="../Imgs/clean-all-NotActive.png" onclick="clean_all_canvas_paint()" onmouseover="load_img_src('clean_all-paint-paper','clean-all-Active.png')" onmouseout="load_img_src('clean_all-paint-paper','clean-all-NotActive.png')">
                 
                 <img id="pen-NotActive-paint-paper" class="tools" src="./Imgs/Pen-NotActive.png" onmouseover="load_img_src('pen-NotActive-paint-paper','Pen-Active.png')" onmouseout="load_img_src('pen-NotActive-paint-paper','Pen-NotActive.png')" onclick="pen_activator()">
                 
                 <img id="Eraser-NotActive" class="tools" src="./Imgs/Eraser-NotActive.png" onmouseover="load_img_src('Eraser-NotActive','Eraser-Active.png')" onmouseout="load_img_src('Eraser-NotActive','Eraser-NotActive.png')" onclick="Eraser_activator()">
                 
-                <img id="text-NotActive-paint-paper" class="tools" src="./Imgs/Text-NotActive.png" onmouseover="load_img_src('text-NotActive-paint-paper','Text-Active.png')" onmouseout="load_img_src('text-NotActive-paint-paper','Text-NotActive.png')">
+                <!-- <img id="text-NotActive-paint-paper" class="tools" src="./Imgs/Text-NotActive.png" onmouseover="load_img_src('text-NotActive-paint-paper','Text-Active.png')" onmouseout="load_img_src('text-NotActive-paint-paper','Text-NotActive.png')">
                 
                 <img id="line-NotActive-paint-paper" class="tools" src="./Imgs/Line-NotActive.png" onmouseover="load_img_src('line-NotActive-paint-paper','Line-Active.png')" onmouseout="load_img_src('line-NotActive-paint-paper','Line-NotActive.png')">
-                
+                 -->
                 <img id="grid-NotActive-paint-paper" class="tools" src="./Imgs/grid-NotActive.png" onclick="gridDraw()" onmouseover="load_img_src('grid-NotActive-paint-paper','grid-Active.png')" onmouseout="load_img_src('grid-NotActive-paint-paper','grid-NotActive.png')">
                 
-                <img id="ruler-NotActive-paint-paper" class="tools" src="./Imgs/ruler-NotActive.png" onclick="rulerDraw()" onmouseover="load_img_src('ruler-NotActive-paint-paper','ruler-Active.png')" onmouseout="load_img_src('ruler-NotActive-paint-paper','ruler-NotActive.png')">
+                <img id="ruler-NotActive-paint-paper" class="tools" src="../Imgs/ruler-NotActive.png" onclick="rulerDraw()" onmouseover="load_img_src('ruler-NotActive-paint-paper','ruler-Active.png')" onmouseout="load_img_src('ruler-NotActive-paint-paper','ruler-NotActive.png')">
                 
 <!--                <div id="button-exit-paint" onclick="load_paint_paper()">✖</div>-->
                 
@@ -34,33 +34,15 @@
                
                 <input id="pen-size-input" value="2">
                 
-                <input id="pen-color-input" value="#2521c4">
-                
-                <input type="color" id="pen_color_value_div" value="#2521c4">
 <!--                <div id="pen_color_value_div" style="background:#2521c4;"></div>-->
-                
+                <input type="color" name="color_pen" id="input_color_pen">
             </div>
         </div>
             <div id="canvas-div">         
                 <canvas id="canvas-paint-paper"  onmouseover="Painting()" background="#ddd"></canvas>
             </div>
             <div id="side-bar">
-                   <img src="./ImgsMems/1.png" class="items" alt=""><br>
-                   <img src="./ImgsMems/2.png" class="items" alt=""><br> 
-                   <img src="./ImgsMems/3.png" class="items" alt=""><br> 
-                   <img src="./ImgsMems/4.png" class="items" alt=""><br> 
-                   <img src="./ImgsMems/5.png" class="items" alt=""><br> 
-                   <img src="./ImgsMems/6.png" class="items" alt=""><br>             
-                   <img src="./ImgsMems/7.png" class="items" alt=""><br> 
-                   <img src="./ImgsMems/8.png" class="items" alt=""><br> 
-                   <img src="./ImgsMems/9.png" class="items" alt=""><br> 
-                   <img src="./ImgsMems/10.png" class="items" alt=""><br> 
-                   <img src="./ImgsMems/0.gif" class="items" alt=""><br> 
-                   <img src="./ImgsMems/0.gif" class="items" alt=""><br> 
-                   <img src="./ImgsMems/0.gif" class="items" alt=""><br> 
-                   <img src="./ImgsMems/0.gif" class="items" alt=""><br> 
-                   <img src="./ImgsMems/0.gif" class="items" alt=""><br> 
-                   <img src="./ImgsMems/0.gif" class="items" alt=""><br> 
+                   <!-- <img src="./ImgsLoad" class="items" alt=""><br>>  -->
             </div>
             <div id="footer">
                 <div id="posMouse">X = 0 Y = 0</div>
@@ -69,6 +51,9 @@
                     <div style="color:azure;float:left;height: 25px; font-size: 15px;padding-top: 5px;">x</div>
                     <input type="text" id="HeightCanvas" value="3508" oninput="change_size_canvas()">
                     
+                </div>
+                <div id="div_download">
+                      <img alt="Сохранить" id="img_download" src="./Imgs/download_icon.png" onclick="download_canvas();">
                 </div>
             </div>
         </div>
